@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+    <html lang="en">
+
+        <head>
+
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Lívia - Revisão 4</title>
+
+            <style>
+                *{
+                    font-size: 110%;
+                    font-family: cursive;
+                }
+                body{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: blue;
+                }
+                div{
+                    margin: 15%;
+                    padding: 2%;
+                    background-color: white;
+                    border-radius: 3%;
+                }
+                table {
+                    border-collapse: collapse;
+                    background: #acaff3;
+                }
+ 
+                table td {
+                    border: 1px solid black;
+                }
+                
+                table th {
+                    border: 1px solid black;
+                    background: #acaff3;
+                }
+            </style>
+        </head>
+
+        <body>
+
+            <script type="text/javascript">
+
+                function go_recup(){
+                    aluno = document.getElementById('nome').value
+                    document.getElementById("mudar").innerHTML =(   '<p style="color:blue">'+aluno+'</p>'+
+                                                                    '<p>Nota 1º etapa  </p><input type="text" id="n1">'+
+                                                                    '<p>Nota 2º etapa  </p><input type="text" id="n2">'+
+                                                                    '<p>Nota 3º etapa  </p><input type="text" id="n3">'+
+                                                                    '<p>Nota Prova Final  </p><input type="text" id="n4"><br><br>'+
+                                                                    '<input style="display: none;" value="'+aluno+'" id="name">'+
+                                                                    '<button type="button" onclick="recup()">Gerar resultado</button><br>'
+                                                                    )
+                }
+
+                function go_passou(){
+                    aluno = document.getElementById('nome').value
+                    document.getElementById("mudar").innerHTML =(   '<p style="color:blue">'+aluno+'</p>'+
+                                                                    '<p>Nota 1º etapa  </p><input type="text" id="n1">'+
+                                                                    '<p>Nota 2º etapa  </p><input type="text" id="n2">'+
+                                                                    '<p>Nota 3º etapa  </p><input type="text" id="n3"><br><br>'+
+                                                                    '<input style="display: none;" value="'+aluno+'" id="name">'+
+                                                                    '<button type="button" onclick="passou()">Gerar resultado</button><br>'
+                                                                    )
+                }
+
+                function passou(){
+                    f1 = parseFloat(document.getElementById('n1').value)
+                    f2 = parseFloat(document.getElementById('n2').value)
+                    f3 = parseFloat(document.getElementById('n3').value)
+                    nomezinho = document.getElementById('name').value
+
+                    final_total = f1 + f2 + f3
+
+                    document.getElementById("mudar").innerHTML = (  '<p style="color:green">Aluno: '+nomezinho+'</p>'+
+                                                                    '<table>'+
+                                                                    '<tr>'+
+                                                                    '<th>1º etapa</th>'+
+                                                                    '<th>2º etapa</th>'+
+                                                                    '<th>3º etapa</th>'+
+                                                                    '<th>Nota Final</th>'+
+                                                                    '</tr>'+
+                                                                    '<tr>'+
+                                                                    '<td>'+f1+'</td>'+
+                                                                    '<td>'+f2+'</td>'+
+                                                                    '<td>'+f3+'</td>'+
+                                                                    '<td>'+final_total+'</td>'+
+                                                                    '</tr>'+
+                                                                    '</table>')
+                    }
+
+                function recup(){
+                    f1 = parseFloat(document.getElementById('n1').value)
+                    f2 = parseFloat(document.getElementById('n2').value)
+                    f3 = parseFloat(document.getElementById('n3').value)
+                    f4 = parseFloat(document.getElementById('n4').value)
+                    nomezinho = document.getElementById('name').value
+
+                    if(f1<f2&&f1<f3){
+                        final_total = f2 + f3 + f4
+                    }
+                    if(f2<f1&&f2<f3){
+                        final_total = f1 + f3 + f4
+                    }
+                    if(f3<f2&&f3<f1){
+                        final_total = f2 + f1 + f4
+                    }
+
+                    
+
+                    document.getElementById("mudar").innerHTML = (  '<p style="color:red">Aluno: '+nomezinho+'</p>'+
+                                                                    '<table>'+
+                                                                    '<tr>'+
+                                                                    '<th>1º etapa</th>'+
+                                                                    '<th>2º etapa</th>'+
+                                                                    '<th>3º etapa</th>'+
+                                                                    '<th>Prova Final</th>'+
+                                                                    '<th>Nota Final</th>'+
+                                                                    '</tr>'+
+                                                                    '<tr>'+
+                                                                    '<td>'+f1+'</td>'+
+                                                                    '<td>'+f2+'</td>'+
+                                                                    '<td>'+f3+'</td>'+
+                                                                    '<td>'+f4+'</td>'+
+                                                                    '<td>'+final_total+'</td>'+
+                                                                    '</tr>'+
+                                                                    '</table>')
+                }
+
+            </script>
+
+            <div id="mudar">
+                <p>Nome do Aluno: </p><br>
+                <input type="text" id="nome"><br><br><br>
+                <button type="button" onclick="go_recup()" style="background-color: red;">Ficou em recuperação final</button><br><br>
+                <button type="button" onclick="go_passou()" style="background-color: green;">Não ficou em recuperação final</button><br>
+            </div>
+
+        </body>
+    </html>
