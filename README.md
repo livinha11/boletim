@@ -4,6 +4,7 @@
 
 <p>Site criado com o objetivo de gerar um boletim a partir da análise de resultados inseridos pelo cliente. Na lógica do código, temos duas opções:</p>
 
+ ![Badge em Desenvolvimento](https://img.shields.io/badge/STATUS-Finalizado-green)
 
 <h2>:mortar_board:  Aluno que nao ficou de recuperação</h2>
 Pede as notas das 3 etapas e soma todas, gerando o boletim. 
